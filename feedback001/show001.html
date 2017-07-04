@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css001.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        function loadlink(){
+            jQuery.get('http://10.120.37.84:7379/get/a.txt', function(data) {
+                $('#number').text(data);
+            });
+        }
+        setInterval(function(){
+            loadlink()
+        }, 1000);
+    </script>
+    <script src="odometer.js"></script>
+</head>
+<body>
+    <div class="odometer" id="number">0000</div>
+</body>
+</html>
