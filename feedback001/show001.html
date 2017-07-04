@@ -8,6 +8,9 @@
     <script>
         function loadlink(){
             jQuery.get('http://10.120.37.84:7379/get/a.txt', function(data) {
+                if(data > 3400){
+                    $('#warning').text("爆量通知");
+                }
                 $('#number').text(data);
             });
         }
@@ -18,6 +21,10 @@
     <script src="odometer.js"></script>
 </head>
 <body>
-    <div class="odometer" id="number">0000</div>
+    <div style="text-align:center;">
+        <div id="run" style="font-size:80px">即時銷量</div>
+        <div class="odometer" id="number">0000</div>
+        <div id="warning" style="color:#FF0000; font-size:80px"></div>
+    </div>
 </body>
 </html>
